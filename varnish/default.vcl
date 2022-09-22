@@ -85,7 +85,7 @@ sub vcl_recv {
 
     # No caching of special URLs, logged in users and some plugins
     if (
-        req.http.Cookie ~ "wordpress_(?!test_)[a-zA-Z0-9_]+|wp-postpass|comment_author_[a-zA-Z0-9_]+|woocommerce_cart_hash|woocommerce_items_in_cart|wp_woocommerce_session_[a-zA-Z0-9]+|wordpress_logged_in_|comment_author|PHPSESSID" ||
+        req.http.Cookie ~ "drupal_[a-zA-Z0-9_]+" ||
         req.http.Authorization ||
         req.url ~ "add_to_cart" ||
         req.url ~ "edd_action" ||
