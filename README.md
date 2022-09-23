@@ -235,8 +235,11 @@ $settings['redis.connection']['base'] = 8;
 #### Varnish
 
 [Varnish Configuration](https://www.varnish-software.com/developers/tutorials/configuring-varnish-drupal/)
+
 Varnish Server Hostname: varnish
+
 Varnish Server Port: 81
+
 Scheme: http
 
 ### phpMyAdmin
