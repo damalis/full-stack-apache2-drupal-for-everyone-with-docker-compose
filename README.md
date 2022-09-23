@@ -234,7 +234,7 @@ $settings['redis.connection']['base'] = 8;
 
 #### Varnish
 
-[Varnish Configuration](https://www.varnish-software.com/developers/tutorials/configuring-varnish-drupal/)
+[This tutorial is a step-by-step guide on how to configure Varnish for Drupal](https://www.varnish-software.com/developers/tutorials/configuring-varnish-drupal/)
 
 Varnish Server Hostname: varnish
 
