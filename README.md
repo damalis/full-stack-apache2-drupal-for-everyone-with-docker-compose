@@ -217,13 +217,13 @@ docker container restart drupal
 add and/or remove drupal site folders and files with any ftp client program in ```./drupal``` folder.
 <br />You can also visit `https://example.com` to access website after starting the containers.
 
-#### Database configuration
+#### Database
 
 ADVANCED OPTIONS -> Host: database
 
 #### Redis
 
-Edit Drupal settings file: ./drupal/sites/default/settings.php and add these lines at the bottom of the file or make uncomment:
+if there isn't these lines, Edit Drupal settings file: ./drupal/sites/default/settings.php and add these lines at the bottom of the file:
 
 ```
 $settings['redis.connection']['host'] = 'redis';
@@ -234,11 +234,11 @@ $settings['redis.connection']['base'] = 8;
 
 #### Varnish
 
-[This tutorial is a step-by-step guide on how to configure Varnish for Drupal](https://www.varnish-software.com/developers/tutorials/configuring-varnish-drupal/)
+[This link is to complete configure Varnish](https://www.varnish-software.com/developers/tutorials/configuring-varnish-drupal/#4-configure-caching-and-purging-in-drupal)
 
 Varnish Server Hostname: varnish
 
-Varnish Server Port: 81
+Varnish Server Port: 8080
 
 Scheme: http
 
