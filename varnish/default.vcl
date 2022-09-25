@@ -109,7 +109,7 @@ sub vcl_recv {
         req.url ~ "^/flag/.*$" ||
         req.url ~ "^.*/ajax/.*$" ||
         req.url ~ "^.*/ahah/.*$" ||
-		req.url ~ "^/\.well-known/acme-challenge/") {
+        req.url ~ "^/\.well-known/acme-challenge/") {
         return (pass);
     }
 
