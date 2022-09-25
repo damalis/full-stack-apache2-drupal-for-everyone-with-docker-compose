@@ -190,12 +190,6 @@ docker-compose up -d
 
 ### Website
 
-All necessary changes to sites/default and sites/default/settings.php have been made, so you should remove write permissions to them now in order to avoid security risks.
-
-```
-chmod 655 ./drupal/sites/default/settings.php
-```
-
 add or remove code in the ./php-fpm/php/conf.d/security.ini file for custom php.ini configurations
 
 Copy and paste the following code in the ./php-fpm/php-fpm.d/z-www.conf file for php-fpm configurations at 1Gb Ram Host
@@ -241,6 +235,12 @@ Varnish Server Hostname: varnish
 Varnish Server Port: 8080
 
 Scheme: http
+
+All necessary changes to sites/default and sites/default/settings.php have been made, so you should remove write permissions to them now in order to avoid security risks.
+
+```
+chmod 655 ./drupal/sites/default/settings.php
+```
 
 ### phpMyAdmin
 
