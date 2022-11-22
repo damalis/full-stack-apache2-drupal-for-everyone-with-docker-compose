@@ -254,8 +254,6 @@ $settings['redis.connection']['base'] = 8;
 
 #### Varnish
 
-[This link is to complete configure Varnish](https://www.varnish-software.com/developers/tutorials/configuring-varnish-drupal/#4-configure-caching-and-purging-in-drupal)
-
 Varnish Server Hostname: varnish
 
 Varnish Server Port: 8080
@@ -267,6 +265,8 @@ All necessary changes to sites/default and sites/default/settings.php have been 
 ```
 chmod 655 ./drupal/sites/default/settings.php
 ```
+
+[This link is to complete configure Varnish](https://www.varnish-software.com/developers/tutorials/configuring-varnish-drupal/#4-configure-caching-and-purging-in-drupal)
 
 ### phpMyAdmin
 
