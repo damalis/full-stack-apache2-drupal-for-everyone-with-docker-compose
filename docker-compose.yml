@@ -201,7 +201,7 @@ services:
 
     varnish:
         depends_on:
-            wordpress:
+            drupal:
                 condition: service_healthy
         image: varnish:${VARNISH_VERSION}
         container_name: varnish
