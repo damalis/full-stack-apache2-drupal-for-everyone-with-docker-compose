@@ -5,6 +5,7 @@ import std;
 backend default {
     .host = "webserver";
     .port = "90";
+    .connect_timeout = 2s;
 }
 
 # Add hostnames, IP addresses and subnets that are allowed to purge content
@@ -21,7 +22,7 @@ sub vcl_recv {
     set req.http.Surrogate-Capability = "Varnish=ESI/1.0";
     
     # Remove empty query string parameters
-    # e.g.: www.example.com/index.html?    
+    # e.g.: www.example.com/index.html?
     if (req.url ~ "\?$") {
         set req.url = regsub(req.url, "\?$", "");
     }
@@ -33,7 +34,7 @@ sub vcl_recv {
     set req.url = std.querysort(req.url);
     
     # Remove the proxy header to mitigate the httpoxy vulnerability
-    # See https://httpoxy.org/    
+    # See https://httpoxy.org/
     unset req.http.proxy;
 
     # Add X-Forwarded-Proto header when using https
