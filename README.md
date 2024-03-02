@@ -306,13 +306,50 @@ ADVANCED OPTIONS -> Host: database
 
 #### Redis
 
-if there isn't these lines, Edit Drupal settings file: ./drupal/sites/default/settings.php and add these lines at the bottom of the file:
+if there isn't these lines, Edit Drupal settings file: ```./drupal/sites/default/settings.php``` and add these lines at the bottom of the file:
 
 ```
+$settings['redis.connection']['interface'] = 'PhpRedis';
+// Host ip address.
 $settings['redis.connection']['host'] = 'redis';
-$settings['redis.connection']['port'] = 6379;
 $settings['cache']['default'] = 'cache.backend.redis';
-$settings['redis.connection']['base'] = 8;
+// Redis port.
+$settings['redis.connection']['port'] = '6379';
+$settings['redis.connection']['base'] = 12;
+// Password of redis updated in php.ini file.
+// $settings['redis.connection']['password'] = "password";
+$settings['cache']['bins']['bootstrap'] = 'cache.backend.chainedfast';
+$settings['cache']['bins']['discovery'] = 'cache.backend.chainedfast';
+$settings['cache']['bins']['config'] = 'cache.backend.chainedfast';
+```
+
+Create ```./drupal/sites/default/files/services.yml``` inisde default folder and add the below code in it.
+
+```
+services:
+	# Cache tag checksum backend. Used by redis and most other cache backend
+	# to deal with cache tag invalidations.
+	cache_tags.invalidator.checksum:
+		class: Drupal\redis\Cache\RedisCacheTagsChecksum
+		arguments: ['@redis.factory']
+		tags:
+			- { name: cache_tags_invalidator }
+
+	# Replaces the default lock backend with a redis implementation.
+	lock:
+		class: Drupal\Core\Lock\LockBackendInterface
+	factory: ['@redis.lock.factory', get]
+
+	# Replaces the default persistent lock backend with a redis implementation.
+	lock.persistent:
+		class: Drupal\Core\Lock\LockBackendInterface
+		factory: ['@redis.lock.factory', get]
+		arguments: [true]
+
+	# Replaces the default flood backend with a redis implementation.
+	flood:
+	class: Drupal\Core\Flood\FloodInterface
+	factory: ['@redis.flood.factory', get]
 ```
 
 #### Varnish
