@@ -306,6 +306,8 @@ ADVANCED OPTIONS -> Host: database
 
 #### Redis
 
+at page https://example.com/admin/modules filter: redis and check then install.
+
 if there isn't these lines, Edit Drupal settings file: ```./drupal/sites/default/settings.php``` and add these lines at the bottom of the file:
 
 ```
@@ -353,6 +355,8 @@ services:
 ```
 
 #### Varnish
+
+at page https://example.com/admin/modules filter: purge and check then install.
 
 Varnish Server Hostname: varnish
 
