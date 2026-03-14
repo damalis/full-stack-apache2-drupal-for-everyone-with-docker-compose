@@ -337,7 +337,7 @@ add or remove code in the ```./webserver/extra/httpd-ssl.conf``` file for custom
 
 #### Database
 
-ADVANCED OPTIONS -> |```Host: database```|```Username: root```|```Password: root password```|
+ADVANCED OPTIONS -> |```Host: database```|```Username: DB_USER```|```Password: DB_PASSWORD```|
 
 [https://mariadb.com/kb/en/configuring-mariadb-with-option-files/](https://mariadb.com/kb/en/configuring-mariadb-with-option-files/)
 
